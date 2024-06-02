@@ -125,7 +125,7 @@ func (service *PenggunaServiceImpl) Delete(ctx context.Context, penggunaId int) 
 	defer helper.CommitOrRollback(tx)
 	barangs := service.PenggunaRepository.FindById(ctx, tx, penggunaId)
 	if barangs.Id != penggunaId {
-		panic(exception.NewNotFound("Data Barang Tidak Ditemukan"))
+		panic(exception.NewNotFound("Data Tidak Ditemukan"))
 	}
 	service.PenggunaRepository.Delete(ctx, tx, barangs)
 }
